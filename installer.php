@@ -75,7 +75,7 @@ class Installer
 		          ".volt"  => "Phalcon\\Mvc\\View\\Engine\\Volt"
 		     ]
 		);
-	    $view->setViewsDir(BASE_PATH . "/installer/views/");
+	    $view->setViewsDir(BASE_PATH . "/modules/installer/views/");
 
 	    return $view;
 	}

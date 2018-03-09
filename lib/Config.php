@@ -11,7 +11,7 @@ class Config
 		if(file_exists(APP_PATH . "/config/config.db.php")){
 			unlink(APP_PATH . "/config/config.db.php");
 		}
-		copy(BASE_PATH."/installer/src/db.php", APP_PATH."/config/config.db.php");
+		copy(BASE_PATH."/modules/installer/src/db.php", APP_PATH."/config/config.db.php");
 		$filedestination = APP_PATH . "/config/config.db.php";
 		$info 	= array(
 			'_URL_'			=> $input['siteurl'],

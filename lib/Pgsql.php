@@ -670,4 +670,216 @@ class Pgsql
 
         return $result;
     }
+
+    public static function blog($db)
+    {
+        $arr_column = array(
+            new Column("id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+                "autoIncrement" => true,
+            )),
+            new Column("title", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("slug", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("content", array(
+                "type"  => Column::TYPE_TEXT,
+                 "notNull"       => false,
+            )),
+            new Column("image", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => false,
+            )),
+            new Column("publish", array(
+                "type"  => Column::TYPE_INTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+            )),
+            new Column("user_id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+            )),
+            new Column("categories_id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => false,
+            )),
+            new Column("created", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+            new Column("updated", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+            new Column("publish_on", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+        );
+        try {
+            $db->createTable('blog', null, array(
+                "columns" => $arr_column,
+                "indexes" => array(
+                    new Index('blog_pkey', ['id'], 'PRIMARY KEY'),
+                )
+            ));
+            $result = "Create Table blog Success";
+        } catch (\Exception $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+
+    public static function page($db)
+    {
+        $arr_column = array(
+            new Column("id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+                "autoIncrement" => true,
+            )),
+            new Column("title", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("slug", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("content", array(
+                "type"  => Column::TYPE_TEXT,
+                 "notNull"       => false,
+            )),
+            new Column("image", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => false,
+            )),
+            new Column("publish", array(
+                "type"  => Column::TYPE_INTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+            )),
+            new Column("user_id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+            )),
+            new Column("categories_id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => false,
+            )),
+            new Column("created", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+            new Column("updated", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+            new Column("publish_on", array(
+                "type"  => Column::TYPE_DATETIME,
+                "notNull"       => false,
+            )),
+        );
+        try {
+            $db->createTable('page', null, array(
+                "columns" => $arr_column,
+                "indexes" => array(
+                    new Index('page_pkey', ['id'], 'PRIMARY KEY'),
+                )
+            ));
+            $result = "Create Table page Success";
+        } catch (\Exception $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+
+    public static function blogCategory($db)
+    {
+        $arr_column = array(
+            new Column("id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+                "autoIncrement" => true,
+            )),
+            new Column("name", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("slug", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+        );
+        try {
+            $db->createTable('blog_categories', null, array(
+                "columns" => $arr_column,
+                "indexes" => array(
+                    new Index('blog_category_pkey', ['id'], 'PRIMARY KEY'),
+                )
+            ));
+            $result = "Create Table Blog Category Success";
+        } catch (\Exception $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
+
+    public static function pageCategory($db)
+    {
+        $arr_column = array(
+            new Column("id", array(
+                "type"  => Column::TYPE_BIGINTEGER,
+                "size"  => 11,
+                "notNull"       => true,
+                "autoIncrement" => true,
+            )),
+            new Column("name", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+            new Column("slug", array(
+                "type"  => Column::TYPE_VARCHAR,
+                "size"  => 255,
+                "notNull"       => true,
+            )),
+        );
+        try {
+            $db->createTable('page_categories', null, array(
+                "columns" => $arr_column,
+                "indexes" => array(
+                    new Index('page_category_pkey', ['id'], 'PRIMARY KEY'),
+                )
+            ));
+            $result = "Create Table Page Category Success";
+        } catch (\Exception $e) {
+            $result = $e->getMessage();
+        }
+
+        return $result;
+    }
 }

@@ -40,6 +40,10 @@ class Database
                 "resources" => Mysql::privateResource($connection),
                 "profiles"  => Mysql::profiles($connection),
                 "users"     => Mysql::users($connection),
+                "blog"      => Mysql::blog($connection),
+                "page"      => Mysql::page($connection),
+                "blog_categories"   => Mysql::blogCategory($connection),
+                "page_categories"   => Mysql::pageCategory($connection),
             ];
         }else{
             $result = [
@@ -56,6 +60,10 @@ class Database
                 "resources" => Pgsql::privateResource($connection),
                 "profiles"  => Pgsql::profiles($connection),
                 "users"     => Pgsql::users($connection),
+                "blog"      => Pgsql::blog($connection),
+                "page"      => Pgsql::page($connection), 
+                "blog_categories" => Pgsql::blogCategory($connection),
+                "page_categories" => Pgsql::pageCategory($connection),
             ];
         }
         
